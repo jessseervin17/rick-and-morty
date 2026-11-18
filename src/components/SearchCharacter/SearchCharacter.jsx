@@ -60,7 +60,7 @@ function SearchCharacter( {characterList, setCharacterList} ){
             </Form>
             <div className = "flex flex-row flex-wrap gap-4" id ="characterContainer">
                 {characterList.map((character)=>(
-                    <CharacterCard key = {character.id} character={character}/>
+                    <CharacterCard key={character.id} character={character}/>
                 ))}
             </div>
         </>

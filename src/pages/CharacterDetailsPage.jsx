@@ -15,6 +15,7 @@ function CharacterDetailsPage() {
         let ignore = false
         axios.get(`https://rickandmortyapi.com/api/character/${id}`)
             .then((response) => { if (!ignore) setCharacter(response.data) })
+            .catch((error)=>{setError(error.message); console.log('Request failed with status code 404')})
         return () => { ignore = true }
     }, [id])
 
@@ -23,7 +24,7 @@ function CharacterDetailsPage() {
 
     return (
         <>
-            <Card style={{ width: '18rem' }}>
+            <Card style={{ width: '18rem' }} id={character.id}>
                 <Card.Img variant="top" src={character.image} alt={character.name} />
                 <Card.Body>
                     <h2 className='text-capitalize'>{character.name} #{character.id}</h2>
